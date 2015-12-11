@@ -43,9 +43,9 @@
 
 - (void)initalizeUI
 {
-    [self addSubview:self.firstTableView];
-    [self addSubview:self.secondTableView];
-    [self addSubview:self.thirdTableView];
+    [self.backGroundView addSubview:self.firstTableView];
+    [self.backGroundView addSubview:self.secondTableView];
+    [self.backGroundView addSubview:self.thirdTableView];
     [self reloadHeaderTitleViews];
     [self reloadAllTableViews];
 
@@ -53,7 +53,6 @@
 
 - (void)reloadAllTableViews
 {
-
     [self layoutAllTableViews];
     [self.firstTableView reloadData];
     [self.secondTableView reloadData];

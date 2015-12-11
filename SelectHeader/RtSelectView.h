@@ -41,7 +41,7 @@ typedef NS_ENUM(NSInteger, RTTableViewType) {
 
 //------------------
 - (NSInteger)headerTitlesCount;
-- (UIView *)headerTitleViewWithIndex:(NSInteger)i;
+- (UIView *)headerTitleViewWithIndex:(NSInteger)index;
 
 @optional
 
