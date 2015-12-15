@@ -18,8 +18,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *secondTableView;
 @property (weak, nonatomic) IBOutlet UITableView *thirdTableView;
 
-@property (assign, nonatomic) NSInteger tableViewCounts;
-@property (assign, nonatomic) NSInteger headerTitlesCount;
+//@property (assign, nonatomic) NSInteger tableViewCounts;
+//@property (assign, nonatomic) NSInteger headerTitlesCount;
 @end
 
 @implementation RtSelectView
@@ -61,8 +61,8 @@
 
 - (void)reloadHeaderTitleViews
 {
-    self.headerTitlesCount = [self.rtDataSource headerTitlesCount];
-    for (int i = 0; i < self.headerTitlesCount; i++) {
+    NSInteger headerTitlesCount = [self.rtDataSource headerTitlesCount];
+    for (int i = 0; i < headerTitlesCount; i++) {
       UIView *titleView = [self.rtDataSource headerTitleViewWithIndex:i];
         __weak UIView *weakTitleView = titleView;
         [titleView bk_whenTapped:^{
@@ -77,13 +77,20 @@
 
 - (void)layoutAllTableViews
 {
-    self.tableViewCounts = [self.rtDataSource tableViewCounts];
     [self setTableViewsFrame];
 }
 
 - (void)setTableViewsFrame
 {
-    switch (self.tableViewCounts) {
+    UIView *bottomView = [self.rtDataSource tableBottomView];
+    CGFloat bottomViewHeight = 0;
+    if (bottomView) {
+        bottomViewHeight = CGRectGetHeight(bottomView.frame);
+        bottomView.frame = CGRectMake(0, CGRectGetHeight(self.backGroundView.frame) - bottomViewHeight, CGRectGetWidth(self.backGroundView.frame), bottomViewHeight);
+        [self.backGroundView addSubview:bottomView];
+    }
+    NSInteger tableViewCounts = [self.rtDataSource tableViewCounts];
+    switch (tableViewCounts) {
         case 0:{
     self.firstTableView.alpha  = 0;
     self.secondTableView.alpha = 0;
@@ -94,24 +101,24 @@
     self.firstTableView.alpha  = 1;
     self.secondTableView.alpha = 0;
     self.thirdTableView.alpha  = 0;
-    self.firstTableView.frame  = CGRectMake(0, CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width,TableViewHeight );
+    self.firstTableView.frame  = CGRectMake(0, CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width,TableViewHeight -bottomViewHeight );
         }
             break;
         case 2:{
     self.firstTableView.alpha  = 1;
     self.secondTableView.alpha = 1;
     self.thirdTableView.alpha  = 0;
-    self.firstTableView.frame  = CGRectMake(0, CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 2,TableViewHeight );
-    self.secondTableView.frame = CGRectMake(self.frame.size.width / 2,CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 2,TableViewHeight );
+    self.firstTableView.frame  = CGRectMake(0, CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 2,TableViewHeight - bottomViewHeight );
+    self.secondTableView.frame = CGRectMake(self.frame.size.width / 2,CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 2,TableViewHeight - bottomViewHeight);
         }
             break;
         case 3:{
     self.firstTableView.alpha  = 1;
     self.secondTableView.alpha = 1;
     self.thirdTableView.alpha  = 1;
-    self.firstTableView.frame  = CGRectMake(0, CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 3,TableViewHeight );
-    self.secondTableView.frame = CGRectMake(self.frame.size.width / 3,CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 3,TableViewHeight );
-    self.thirdTableView.frame  = CGRectMake(self.frame.size.width / 3 * 2,CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 3,TableViewHeight );
+    self.firstTableView.frame  = CGRectMake(0, CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 3,TableViewHeight -bottomViewHeight );
+    self.secondTableView.frame = CGRectMake(self.frame.size.width / 3,CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 3,TableViewHeight - bottomViewHeight);
+    self.thirdTableView.frame  = CGRectMake(self.frame.size.width / 3 * 2,CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 3,TableViewHeight - bottomViewHeight);
         }
             break;
 
@@ -124,19 +131,29 @@
     }
 }
 
-- (void)rtSelectViewOpenSelf:(BOOL)open
+- (void)rtSelectViewOpenSelf:(BOOL)open withAnimate:(BOOL)animate
 {
-    [UIView animateWithDuration:0.6 animations:^{
+    CGFloat duration = (animate)?0.2:0.0;
+    [UIView animateWithDuration: duration animations:^{
         if (open) {
-            self.backGroundViewHeight.constant = CGRectGetHeight(self.headerTitlesView.frame) + TableViewHeight;
+            self.backGroundView.frame =CGRectMake(0, 0, CGRectGetWidth(self.backGroundView.bounds), CGRectGetHeight(self.headerTitlesView.bounds) + TableViewHeight);
+            NSLog(@"%@",self.backGroundView);
             self.firstTableView.alpha  = 1;
             self.secondTableView.alpha = 1;
             self.thirdTableView.alpha  = 1;
         }else{
-            self.backGroundViewHeight.constant = CGRectGetHeight(self.headerTitlesView.frame);
+            self.backGroundView.frame =CGRectMake(0, 0, CGRectGetWidth(self.backGroundView.bounds), CGRectGetHeight(self.headerTitlesView.bounds));
             self.firstTableView.alpha  = 0;
             self.secondTableView.alpha = 0;
             self.thirdTableView.alpha  = 0;
+        }
+    }completion:^(BOOL finished) {
+        if (finished) {
+            if (open) {
+                self.backGroundViewHeight.constant = CGRectGetHeight(self.headerTitlesView.frame) + TableViewHeight;
+            }else{
+                self.backGroundViewHeight.constant = CGRectGetHeight(self.headerTitlesView.frame);
+            }
         }
     }];
 }

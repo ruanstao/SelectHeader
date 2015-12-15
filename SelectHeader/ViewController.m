@@ -11,7 +11,7 @@
 #import "RtSelectViewTitleModel.h"
 #import "RtSelectViewTableCellItem.h"
 
-@interface ViewController ()<RtSelectViewDataSource>
+@interface ViewController ()<RtSelectViewDataSource,RtSelectViewDelegate>
 @property (weak, nonatomic) IBOutlet RtSelectView *selectView;
 
 @property (nonatomic,strong) NSArray *rtselectViewContent;
@@ -60,6 +60,7 @@
     self.rtselectViewContent = @[titleA,titleB,titleC,titleD];
 }
 
+//@[title]
 //static NSInteger a = 2;
 //- (void)a
 //{
@@ -85,11 +86,34 @@
     l.userInteractionEnabled = YES;
     return l;
 }
+
 - (void) headerTitleView:(UIView *) titleView didSelectIndex:(NSInteger)index
 {
+    RtSelectViewTitleModel *indexModel = [self.rtselectViewContent objectAtIndex:index];
+    RtSelectViewTitleModel *originalIndexModel = [self.rtselectViewContent objectAtIndex:self.titleSelectIndex];
+    if (self.titleSelectIndex == index) {
+        indexModel.select = !indexModel.select;
+        if (indexModel.select) {
+            [self.selectView rtSelectViewOpenSelf:YES withAnimate:YES];
+            [self.selectView reloadAllTableViews];
+        }else{
+            [self.selectView rtSelectViewOpenSelf:NO withAnimate:YES];
+        }
+    }else{
+        originalIndexModel.select = NO;
+        indexModel.select = !indexModel.select;
+        if (indexModel.select) {
+            [self.selectView rtSelectViewOpenSelf:YES withAnimate:!originalIndexModel.select];
+            [self.selectView reloadAllTableViews];
+        }else{
+            [self.selectView rtSelectViewOpenSelf:NO withAnimate:!originalIndexModel.select];
+        }
+    }
     self.titleSelectIndex = index;
-    [self.selectView reloadAllTableViews];
+
+
 }
+
 - (NSInteger )tableViewCounts
 {
     RtSelectViewTitleModel *titleModel = [self.rtselectViewContent objectAtIndex:self.titleSelectIndex];
@@ -109,5 +133,11 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     return cell;
+}
+- (UIView *)tableBottomView
+{
+    UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width, 50)];
+    bottomView.backgroundColor = [UIColor brownColor];
+    return bottomView;
 }
 @end

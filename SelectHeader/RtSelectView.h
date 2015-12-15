@@ -45,6 +45,8 @@ typedef NS_ENUM(NSInteger, RTTableViewType) {
 
 @optional
 
+- (UIView *)tableBottomView;
+
 @end
 
 
@@ -58,6 +60,6 @@ typedef NS_ENUM(NSInteger, RTTableViewType) {
 - (void)initalizeUI;
 - (void)reloadAllTableViews;
 - (void)layoutAllTableViews;
-- (void)rtSelectViewOpenSelf:(BOOL)open;
+- (void)rtSelectViewOpenSelf:(BOOL)open withAnimate:(BOOL)animate;
 @end
 
