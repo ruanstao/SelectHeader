@@ -20,6 +20,7 @@
 
 //@property (assign, nonatomic) NSInteger tableViewCounts;
 //@property (assign, nonatomic) NSInteger headerTitlesCount;
+@property (nonatomic,strong) UIView *bottomView;
 @end
 
 @implementation RtSelectView
@@ -87,7 +88,12 @@
     if (bottomView) {
         bottomViewHeight = CGRectGetHeight(bottomView.frame);
         bottomView.frame = CGRectMake(0, CGRectGetHeight(self.backGroundView.frame) - bottomViewHeight, CGRectGetWidth(self.backGroundView.frame), bottomViewHeight);
+        [self.bottomView removeFromSuperview];
+        self.bottomView = bottomView;
         [self.backGroundView addSubview:bottomView];
+    }else{
+        [self.bottomView removeFromSuperview];
+        self.bottomView = nil;
     }
     NSInteger tableViewCounts = [self.rtDataSource tableViewCounts];
     switch (tableViewCounts) {

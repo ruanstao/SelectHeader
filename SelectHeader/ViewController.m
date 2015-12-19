@@ -56,7 +56,7 @@
     titleA.subItemArray = @[itemA,itemB,itemC];
     titleB.subItemArray = @[itemB,itemC];
     titleC.subItemArray = @[itemC];
-
+    titleB.isNeedBottomButton = YES;
     self.rtselectViewContent = @[titleA,titleB,titleC,titleD];
 }
 
@@ -100,6 +100,7 @@
             [self.selectView rtSelectViewOpenSelf:NO withAnimate:YES];
         }
     }else{
+        self.titleSelectIndex = index;
         originalIndexModel.select = NO;
         indexModel.select = !indexModel.select;
         if (indexModel.select) {
@@ -109,7 +110,7 @@
             [self.selectView rtSelectViewOpenSelf:NO withAnimate:!originalIndexModel.select];
         }
     }
-    self.titleSelectIndex = index;
+
 
 
 }
@@ -134,10 +135,22 @@
     }
     return cell;
 }
+
 - (UIView *)tableBottomView
 {
-    UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width, 50)];
-    bottomView.backgroundColor = [UIColor brownColor];
-    return bottomView;
+    RtSelectViewTitleModel *titleModel = [self.rtselectViewContent objectAtIndex:self.titleSelectIndex];
+    if (titleModel.isNeedBottomButton) {
+        UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width, 50)];
+        bottomView.backgroundColor = [UIColor brownColor];
+        return bottomView;
+    }else{
+        return nil;
+    }
+
+}
+
+- (void)tableViewType:(RTTableViewType)tableViewType tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"tableViewType:%@ %@ %@ ",@(tableViewType),@(indexPath.section),@(indexPath.row));
 }
 @end
