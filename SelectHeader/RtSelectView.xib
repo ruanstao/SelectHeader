@@ -11,35 +11,45 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMm-of-il7">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Le4-Gi-nWv">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
-                            <color key="backgroundColor" red="0.92549019610000005" green="0.94509803920000002" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="8L2-fG-nuy"/>
-                            </constraints>
-                        </view>
-                    </subviews>
+                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6i-74-BeM">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="32"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Le4-Gi-nWv" secondAttribute="trailing" id="Sg5-pq-fCY"/>
-                        <constraint firstItem="Le4-Gi-nWv" firstAttribute="leading" secondItem="TMm-of-il7" secondAttribute="leading" id="fci-gO-xj2"/>
-                        <constraint firstItem="Le4-Gi-nWv" firstAttribute="top" secondItem="TMm-of-il7" secondAttribute="top" id="i47-gk-1vS"/>
-                        <constraint firstAttribute="height" constant="50" id="wHG-e5-pKP"/>
+                        <constraint firstAttribute="height" constant="32" id="80R-aE-GZo"/>
+                    </constraints>
+                </view>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMm-of-il7">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="wHG-e5-pKP"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Le4-Gi-nWv">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="32"/>
+                    <color key="backgroundColor" red="0.92549019610000005" green="0.94509803920000002" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="8L2-fG-nuy"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="TMm-of-il7" firstAttribute="leading" secondItem="fht-4s-edW" secondAttribute="leading" id="Q1E-Tj-sSb"/>
+                <constraint firstAttribute="trailing" secondItem="Le4-Gi-nWv" secondAttribute="trailing" id="Rsg-Md-3K0"/>
+                <constraint firstItem="Q6i-74-BeM" firstAttribute="top" secondItem="fht-4s-edW" secondAttribute="top" id="cbn-X5-wZf"/>
                 <constraint firstAttribute="trailing" secondItem="TMm-of-il7" secondAttribute="trailing" id="fFc-ix-G9C"/>
+                <constraint firstItem="Le4-Gi-nWv" firstAttribute="top" secondItem="fht-4s-edW" secondAttribute="top" id="glI-lu-LA8"/>
                 <constraint firstItem="TMm-of-il7" firstAttribute="top" secondItem="fht-4s-edW" secondAttribute="top" id="hax-uc-z6R"/>
+                <constraint firstItem="Q6i-74-BeM" firstAttribute="leading" secondItem="fht-4s-edW" secondAttribute="leading" id="i1s-Ac-bCH"/>
+                <constraint firstAttribute="trailing" secondItem="Q6i-74-BeM" secondAttribute="trailing" id="lr7-Xh-0LK"/>
+                <constraint firstItem="Le4-Gi-nWv" firstAttribute="leading" secondItem="fht-4s-edW" secondAttribute="leading" id="tag-wD-NQb"/>
             </constraints>
             <connections>
                 <outlet property="backGroundView" destination="TMm-of-il7" id="fzC-hr-l6N"/>
                 <outlet property="backGroundViewHeight" destination="wHG-e5-pKP" id="k6Y-lW-RaE"/>
                 <outlet property="firstTableView" destination="w8g-cX-8a5" id="dgT-4m-aSa"/>
+                <outlet property="halfAlphaBackGroundView" destination="Q6i-74-BeM" id="lOy-LY-x19"/>
+                <outlet property="halfAlphaBackGroundViewHeight" destination="80R-aE-GZo" id="2Nf-U4-23H"/>
                 <outlet property="headerTitlesView" destination="Le4-Gi-nWv" id="bos-po-4uR"/>
                 <outlet property="secondTableView" destination="QI7-Rc-pF2" id="gms-XK-dzM"/>
                 <outlet property="thirdTableView" destination="Vi8-QX-JXy" id="K99-sT-rFR"/>

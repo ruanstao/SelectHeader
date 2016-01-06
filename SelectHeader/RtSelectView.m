@@ -13,6 +13,9 @@
 @property (weak, nonatomic) IBOutlet UIView *backGroundView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *backGroundViewHeight;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *halfAlphaBackGroundViewHeight;
+@property (weak, nonatomic) IBOutlet UIView *halfAlphaBackGroundView;
+
 @property (weak, nonatomic) IBOutlet UIView *headerTitlesView;
 @property (weak, nonatomic) IBOutlet UITableView *firstTableView;
 @property (weak, nonatomic) IBOutlet UITableView *secondTableView;
@@ -62,6 +65,11 @@
 
 - (void)reloadHeaderTitleViews
 {
+    __weak typeof(self) weakSelf = self;
+    [self.halfAlphaBackGroundView bk_whenTapped:^{
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf rtSelectViewOpenSelf:NO withAnimate:YES];
+    }];
     NSInteger headerTitlesCount = [self.rtDataSource headerTitlesCount];
     for (int i = 0; i < headerTitlesCount; i++) {
       UIView *titleView = [self.rtDataSource headerTitleViewWithIndex:i];
@@ -143,22 +151,26 @@
     [UIView animateWithDuration: duration animations:^{
         if (open) {
             self.backGroundView.frame =CGRectMake(0, 0, CGRectGetWidth(self.backGroundView.bounds), CGRectGetHeight(self.headerTitlesView.bounds) + TableViewHeight);
-            NSLog(@"%@",self.backGroundView);
+            self.halfAlphaBackGroundView.alpha = 0.3;
             self.firstTableView.alpha  = 1;
             self.secondTableView.alpha = 1;
             self.thirdTableView.alpha  = 1;
         }else{
             self.backGroundView.frame =CGRectMake(0, 0, CGRectGetWidth(self.backGroundView.bounds), CGRectGetHeight(self.headerTitlesView.bounds));
+            self.halfAlphaBackGroundView.alpha = 0.1;
             self.firstTableView.alpha  = 0;
             self.secondTableView.alpha = 0;
             self.thirdTableView.alpha  = 0;
         }
+
     }completion:^(BOOL finished) {
         if (finished) {
             if (open) {
                 self.backGroundViewHeight.constant = CGRectGetHeight(self.headerTitlesView.frame) + TableViewHeight;
+                self.halfAlphaBackGroundViewHeight.constant =  ([UIScreen mainScreen].bounds.size.height);
             }else{
                 self.backGroundViewHeight.constant = CGRectGetHeight(self.headerTitlesView.frame);
+                self.halfAlphaBackGroundViewHeight.constant = 32;
             }
         }
     }];
@@ -205,4 +217,8 @@
     }
 }
 
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
+{
+    return [self.self.halfAlphaBackGroundView pointInside:point withEvent:event];
+}
 @end

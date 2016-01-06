@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RtSelectViewTitleModel.h"
+#import "RtSelectViewTableCellItem.h"
 
 typedef NS_ENUM(NSInteger, RTSelectViewTableViewFrameSetting) {
-    TableViewHeight = 300,
+    TableViewHeight = 234,
 
 };
 

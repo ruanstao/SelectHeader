@@ -10,6 +10,7 @@
 #import "RtSelectView.h"
 #import "RtSelectViewTitleModel.h"
 #import "RtSelectViewTableCellItem.h"
+#import "SelectTitleView.h"
 
 @interface ViewController ()<RtSelectViewDataSource,RtSelectViewDelegate>
 @property (weak, nonatomic) IBOutlet RtSelectView *selectView;
@@ -77,14 +78,25 @@
    return self.rtselectViewContent.count;
 }
 
+- (instancetype)getClassObjectFormNib:(NSString *)nibString
+{
+    NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:nibString owner:nil options:nil];
+    for (id anyObject in nibs) {
+        if ([anyObject isKindOfClass:NSClassFromString(nibString)]) {
+            return anyObject;
+        }
+    }
+    return nil;
+}
+
 - (UIView *)headerTitleViewWithIndex:(NSInteger)index
 {
     NSInteger width = [UIScreen mainScreen].bounds.size.width / self.rtselectViewContent.count;
     RtSelectViewTitleModel *titleModel = [self.rtselectViewContent objectAtIndex:index];
-    UILabel * l = [[UILabel alloc] initWithFrame:CGRectMake(index * width, 0, width, 50)];
-    l.text = titleModel.title;
-    l.userInteractionEnabled = YES;
-    return l;
+    SelectTitleView *selectTitleView = (SelectTitleView *)[self getClassObjectFormNib:@"SelectTitleView"];
+    selectTitleView.frame = CGRectMake(index * width, 0, width, 32);
+    selectTitleView.title.text = titleModel.title;
+    return selectTitleView;
 }
 
 - (void) headerTitleView:(UIView *) titleView didSelectIndex:(NSInteger)index

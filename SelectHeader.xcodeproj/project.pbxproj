@@ -10,6 +10,8 @@
 		C2AFF99C1BC612DAC2FA3340 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B29E6AF3784E998BB9DA86 /* libPods.a */; };
 		DA2327141C1ACECF0005CDE8 /* RtSelectViewTitleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2327131C1ACECF0005CDE8 /* RtSelectViewTitleModel.m */; };
 		DA23271A1C1ADF4E0005CDE8 /* RtSelectViewTableCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2327191C1ADF4E0005CDE8 /* RtSelectViewTableCellItem.m */; };
+		DA7FFF661C3CAB0200A30E2F /* SelectTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7FFF641C3CAB0200A30E2F /* SelectTitleView.m */; };
+		DA7FFF671C3CAB0200A30E2F /* SelectTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA7FFF651C3CAB0200A30E2F /* SelectTitleView.xib */; };
 		DAC83CB51C180BC700C3851D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC83CB41C180BC700C3851D /* main.m */; };
 		DAC83CB81C180BC700C3851D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC83CB71C180BC700C3851D /* AppDelegate.m */; };
 		DAC83CBB1C180BC700C3851D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC83CBA1C180BC700C3851D /* ViewController.m */; };
@@ -46,6 +48,9 @@
 		DA2327131C1ACECF0005CDE8 /* RtSelectViewTitleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RtSelectViewTitleModel.m; sourceTree = "<group>"; };
 		DA2327181C1ADF4E0005CDE8 /* RtSelectViewTableCellItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RtSelectViewTableCellItem.h; sourceTree = "<group>"; };
 		DA2327191C1ADF4E0005CDE8 /* RtSelectViewTableCellItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RtSelectViewTableCellItem.m; sourceTree = "<group>"; };
+		DA7FFF631C3CAB0200A30E2F /* SelectTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTitleView.h; sourceTree = "<group>"; };
+		DA7FFF641C3CAB0200A30E2F /* SelectTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTitleView.m; sourceTree = "<group>"; };
+		DA7FFF651C3CAB0200A30E2F /* SelectTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectTitleView.xib; sourceTree = "<group>"; };
 		DAC83CB01C180BC700C3851D /* SelectHeader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SelectHeader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC83CB41C180BC700C3851D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DAC83CB61C180BC700C3851D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -129,6 +134,9 @@
 		DAC83CB21C180BC700C3851D /* SelectHeader */ = {
 			isa = PBXGroup;
 			children = (
+				DA7FFF631C3CAB0200A30E2F /* SelectTitleView.h */,
+				DA7FFF641C3CAB0200A30E2F /* SelectTitleView.m */,
+				DA7FFF651C3CAB0200A30E2F /* SelectTitleView.xib */,
 				DAC83CB61C180BC700C3851D /* AppDelegate.h */,
 				DAC83CB71C180BC700C3851D /* AppDelegate.m */,
 				DAC83CB91C180BC700C3851D /* ViewController.h */,
@@ -292,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAC83CC31C180BC700C3851D /* LaunchScreen.storyboard in Resources */,
+				DA7FFF671C3CAB0200A30E2F /* SelectTitleView.xib in Resources */,
 				DAC83CC01C180BC700C3851D /* Assets.xcassets in Resources */,
 				DAC83CEA1C180DF200C3851D /* RtSelectView.xib in Resources */,
 				DAC83CEC1C1819E900C3851D /* HomePagePublishImage_2.jpg in Resources */,
@@ -374,6 +383,7 @@
 				DAC83CB81C180BC700C3851D /* AppDelegate.m in Sources */,
 				DAC83CE81C180DAC00C3851D /* RtSelectView.m in Sources */,
 				DAC83CB51C180BC700C3851D /* main.m in Sources */,
+				DA7FFF661C3CAB0200A30E2F /* SelectTitleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
