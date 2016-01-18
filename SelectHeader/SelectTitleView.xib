@@ -12,19 +12,19 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selectViewOpen" translatesAutoresizingMaskIntoConstraints="NO" id="C64-sM-Hfx">
+                    <rect key="frame" x="365" y="298" width="7" height="4"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="4" id="aeb-RQ-PYj"/>
+                        <constraint firstAttribute="width" constant="7" id="eZQ-sV-tcT"/>
+                    </constraints>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="区域" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cx2-ma-bwp">
                     <rect key="frame" x="0.0" y="0.0" width="359" height="600"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selectViewOpen" translatesAutoresizingMaskIntoConstraints="NO" id="C64-sM-Hfx">
-                    <rect key="frame" x="365" y="296" width="14" height="8"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="8" id="aeb-RQ-PYj"/>
-                        <constraint firstAttribute="width" constant="14" id="eZQ-sV-tcT"/>
-                    </constraints>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>

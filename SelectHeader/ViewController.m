@@ -42,9 +42,9 @@
     RtSelectViewTableCellItem *itemA = [[RtSelectViewTableCellItem alloc] init];
     RtSelectViewTableCellItem *itemB = [[RtSelectViewTableCellItem alloc] init];
     RtSelectViewTableCellItem *itemC = [[RtSelectViewTableCellItem alloc] init];
-    itemA.currentModel = @"A";
-    itemB.currentModel = @"B";
-    itemC.currentModel = @"C";
+    itemA.currentType = 1;
+    itemB.currentType = 2;
+    itemC.currentType = 3;
     itemA.subModelArr = @[itemB,itemC];
     itemB.subModelArr = @[itemC];
     RtSelectViewTitleModel *titleA = [[RtSelectViewTitleModel alloc] init];

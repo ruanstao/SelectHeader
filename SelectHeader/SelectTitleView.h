@@ -11,5 +11,5 @@
 @interface SelectTitleView : UIView
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
-@property (nonatomic,assign)BOOL open;
+@property (nonatomic,assign)BOOL isSelected;
 @end

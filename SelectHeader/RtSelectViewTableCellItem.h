@@ -10,7 +10,7 @@
 
 @interface RtSelectViewTableCellItem : NSObject
 
-@property (nonatomic,strong) NSObject *currentModel;
+@property (nonatomic,assign) NSInteger currentType;
 
 @property (nonatomic,strong) NSArray *subModelArr;
 

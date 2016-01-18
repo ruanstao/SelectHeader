@@ -18,13 +18,15 @@
 }
 */
 
-- (void)setOpen:(BOOL)open
+- (void)setIsSelected:(BOOL)isSelected
 {
-    _open = open;
-    if (open) {
+    _isSelected = isSelected;
+    if (isSelected) {
         self.image.image = [UIImage imageNamed:@"selectViewColse"];
+        self.title.textColor = [UIColor colorWithRed:17.0/255.0 green:125.0/255.0 blue:197.0/255.0 alpha:1];
     }else{
         self.image.image = [UIImage imageNamed:@"selectViewOpen"];
+        self.title.textColor = [UIColor colorWithRed:75.0/255.0 green:75.0/255.0 blue:75.0/255.0 alpha:1];
     }
 }
 

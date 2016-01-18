@@ -47,7 +47,7 @@
             <connections>
                 <outlet property="backGroundView" destination="TMm-of-il7" id="fzC-hr-l6N"/>
                 <outlet property="backGroundViewHeight" destination="wHG-e5-pKP" id="k6Y-lW-RaE"/>
-                <outlet property="firstTableView" destination="w8g-cX-8a5" id="dgT-4m-aSa"/>
+                <outlet property="firstTableView" destination="w8g-cX-8a5" id="vZL-kG-4P9"/>
                 <outlet property="halfAlphaBackGroundView" destination="Q6i-74-BeM" id="lOy-LY-x19"/>
                 <outlet property="halfAlphaBackGroundViewHeight" destination="80R-aE-GZo" id="2Nf-U4-23H"/>
                 <outlet property="headerTitlesView" destination="Le4-Gi-nWv" id="bos-po-4uR"/>
@@ -59,7 +59,7 @@
         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="w8g-cX-8a5">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" red="0.99215686270000003" green="0.25673555320000002" blue="0.23096731910000001" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="dataSource" destination="fht-4s-edW" id="PS4-5u-xX6"/>
                 <outlet property="delegate" destination="fht-4s-edW" id="tCa-iZ-7KN"/>
@@ -69,7 +69,7 @@
         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="QI7-Rc-pF2">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" red="0.94117647059999998" green="0.58431372550000005" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="dataSource" destination="fht-4s-edW" id="JGq-Dw-IbJ"/>
                 <outlet property="delegate" destination="fht-4s-edW" id="ZPu-Ag-Mno"/>
@@ -79,7 +79,7 @@
         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vi8-QX-JXy">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="dataSource" destination="fht-4s-edW" id="t9o-Qq-ryu"/>
                 <outlet property="delegate" destination="fht-4s-edW" id="59o-Wv-wIs"/>

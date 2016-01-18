@@ -11,7 +11,7 @@
 #import "RtSelectViewTableCellItem.h"
 
 typedef NS_ENUM(NSInteger, RTSelectViewTableViewFrameSetting) {
-    TableViewHeight = 234,
+    TableViewHeight = 250,
 
 };
 
@@ -29,7 +29,10 @@ typedef NS_ENUM(NSInteger, RTTableViewType) {
 - (void)tableViewType:(RTTableViewType)tableViewType tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 
 //------------------
-- (void) headerTitleView:(UIView *) titleView didSelectIndex:(NSInteger)index;
+- (void)headerTitleView:(UIView *) titleView didSelectIndex:(NSInteger)index;
+- (void)layoutTitlesView:(UIView *) titleView Index:(NSInteger)index;
+- (void)backGroundViewClick;
+
 @end
 
 @protocol RtSelectViewDataSource <NSObject>
@@ -49,17 +52,26 @@ typedef NS_ENUM(NSInteger, RTTableViewType) {
 
 - (UIView *)tableBottomView;
 
+- (CGFloat)tableViewType:(RTTableViewType)tableViewType tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 
 
 @interface RtSelectView : UIView
 
+@property (nonatomic,strong) NSIndexPath *firstTableIndex;
+
+@property (nonatomic,strong) NSIndexPath *secondTableIndex;
+
+@property (nonatomic,strong) NSIndexPath *thirdTableIndex;
+
 @property (nonatomic,assign) id <RtSelectViewDelegate>rtDelegate;
 
 @property (nonatomic,assign) id <RtSelectViewDataSource>rtDataSource;
 
 - (void)initalizeUI;
+- (void)reloadTitlesView;
+- (void)layoutTitlesView;
 - (void)reloadAllTableViews;
 - (void)layoutAllTableViews;
 - (void)rtSelectViewOpenSelf:(BOOL)open withAnimate:(BOOL)animate;
