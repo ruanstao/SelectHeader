@@ -11,8 +11,12 @@
 @interface RtSelectViewTitleModel : NSObject
 
 @property (nonatomic,strong) NSString *title;
+
 @property (nonatomic,assign) BOOL select;
+
 @property (nonatomic,assign) BOOL isNeedBottomButton;
+
 @property (nonatomic,strong) NSArray *subItemArray;
 
+@property (nonatomic,assign) NSInteger subItemSelectIndex;
 @end

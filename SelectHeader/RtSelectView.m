@@ -156,8 +156,8 @@
             self.firstTableView.alpha  = 1;
             self.secondTableView.alpha = 1;
             self.thirdTableView.alpha  = 0;
-            self.firstTableView.frame  = CGRectMake(0, CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 4 ,TableViewHeight - bottomViewHeight );
-            self.secondTableView.frame = CGRectMake(self.frame.size.width / 4,CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 4 * 3,TableViewHeight - bottomViewHeight);
+            self.firstTableView.frame  = CGRectMake(0, CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 8 * 3 ,TableViewHeight - bottomViewHeight );
+            self.secondTableView.frame = CGRectMake(self.frame.size.width / 8 * 3,CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 8 * 5,TableViewHeight - bottomViewHeight);
         }
             break;
         case 3:{
@@ -185,7 +185,7 @@
     if (open) {
         [self resetTableIndex];
         self.backGroundViewHeight.constant = CGRectGetHeight(self.headerTitlesView.frame) + TableViewHeight;
-//        self.halfAlphaBackGroundViewHeight.constant = mScreenHeight;
+        self.halfAlphaBackGroundViewHeight.constant = [UIScreen mainScreen].bounds.size.height;
         self.firstTableView.alpha  = 1;
         self.secondTableView.alpha = 1;
         self.thirdTableView.alpha  = 1;
@@ -269,20 +269,20 @@
         self.firstTableIndex = indexPath;
         self.secondTableIndex = [NSIndexPath indexPathForRow:0 inSection:0];
         self.thirdTableIndex = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.rtDelegate tableViewType:RTTableViewType_FirstTableView tableView:tableView didSelectRowAtIndexPath:indexPath];
         [self.firstTableView reloadData];
         [self.secondTableView reloadData];
         [self.thirdTableView reloadData];
-        [self.rtDelegate tableViewType:RTTableViewType_FirstTableView tableView:tableView didSelectRowAtIndexPath:indexPath];
     }else if (tableView == self.secondTableView){
         self.secondTableIndex = indexPath;
         self.thirdTableIndex = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.rtDelegate tableViewType:RTTableViewType_SecondTableView tableView:tableView didSelectRowAtIndexPath:indexPath];
         [self.secondTableView reloadData];
         [self.thirdTableView reloadData];
-        [self.rtDelegate tableViewType:RTTableViewType_SecondTableView tableView:tableView didSelectRowAtIndexPath:indexPath];
     }else if (tableView == self.thirdTableView){
         self.thirdTableIndex = indexPath;
-        [self.thirdTableView reloadData];
         [self.rtDelegate tableViewType:RTTableViewType_ThirdTableView tableView:tableView didSelectRowAtIndexPath:indexPath];
+        [self.thirdTableView reloadData];
     }
 }
 

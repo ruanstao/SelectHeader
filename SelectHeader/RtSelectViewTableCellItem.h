@@ -14,4 +14,8 @@
 
 @property (nonatomic,strong) NSArray *subModelArr;
 
+@property (nonatomic,assign) BOOL isSelected;
+
+@property (nonatomic,assign) NSInteger subModeSelectIndex;
+
 @end
