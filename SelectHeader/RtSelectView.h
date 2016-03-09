@@ -53,6 +53,8 @@ typedef NS_ENUM(NSInteger, RTTableViewType) {
 - (UIView *)tableBottomView;
 
 - (CGFloat)tableViewType:(RTTableViewType)tableViewType tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+
+- (CGFloat)tableViewHeight;
 @end
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -25,18 +25,29 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OwO-8Y-T3l">
+                    <rect key="frame" x="600" y="4" width="0.0" height="592"/>
+                    <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="0.5" id="5an-XH-dxS"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="C64-sM-Hfx" firstAttribute="leading" secondItem="Cx2-ma-bwp" secondAttribute="trailing" constant="6" id="DVd-SS-ksj"/>
+                <constraint firstAttribute="trailing" secondItem="OwO-8Y-T3l" secondAttribute="trailing" id="FWC-ea-m26"/>
+                <constraint firstAttribute="bottom" secondItem="OwO-8Y-T3l" secondAttribute="bottom" constant="4" id="X9S-1p-5BB"/>
                 <constraint firstItem="Cx2-ma-bwp" firstAttribute="width" secondItem="kjF-fx-dIv" secondAttribute="width" multiplier="55/92" id="aMJ-Pw-QXk"/>
                 <constraint firstAttribute="bottom" secondItem="Cx2-ma-bwp" secondAttribute="bottom" id="eyd-vR-xON"/>
                 <constraint firstItem="Cx2-ma-bwp" firstAttribute="leading" secondItem="kjF-fx-dIv" secondAttribute="leading" id="iAs-bX-p0f"/>
                 <constraint firstItem="C64-sM-Hfx" firstAttribute="centerY" secondItem="Cx2-ma-bwp" secondAttribute="centerY" id="iWy-Aj-dLd"/>
                 <constraint firstItem="Cx2-ma-bwp" firstAttribute="top" secondItem="kjF-fx-dIv" secondAttribute="top" id="sPg-HH-Z72"/>
+                <constraint firstItem="OwO-8Y-T3l" firstAttribute="top" secondItem="kjF-fx-dIv" secondAttribute="top" constant="4" id="tHL-ww-Kko"/>
             </constraints>
             <connections>
                 <outlet property="image" destination="C64-sM-Hfx" id="634-gN-DSd"/>
+                <outlet property="separatorLine" destination="OwO-8Y-T3l" id="ZGF-ev-qA1"/>
                 <outlet property="title" destination="Cx2-ma-bwp" id="2Vm-1d-2ee"/>
             </connections>
             <point key="canvasLocation" x="247" y="281"/>

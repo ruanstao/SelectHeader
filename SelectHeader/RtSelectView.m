@@ -126,10 +126,15 @@
 - (void)setTableViewsFrame
 {
     UIView *bottomView = [self.rtDataSource tableBottomView];
+    CGFloat tableHeight = TableViewHeight;
+    if ([self.rtDataSource respondsToSelector:@selector(tableViewHeight)]) {
+         tableHeight =[self.rtDataSource tableViewHeight]?:TableViewHeight;
+    }
+
     CGFloat bottomViewHeight = 0;
     if (bottomView) {
         bottomViewHeight = CGRectGetHeight(bottomView.frame);
-        bottomView.frame = CGRectMake(0, CGRectGetHeight(self.backGroundView.frame) - bottomViewHeight, CGRectGetWidth(self.backGroundView.frame), bottomViewHeight);
+        bottomView.frame = CGRectMake(0, tableHeight - bottomViewHeight, CGRectGetWidth(self.backGroundView.frame), bottomViewHeight);
         [self.bottomView removeFromSuperview];
         self.bottomView = bottomView;
         [self.backGroundView addSubview:bottomView];
@@ -149,24 +154,24 @@
             self.firstTableView.alpha  = 1;
             self.secondTableView.alpha = 0;
             self.thirdTableView.alpha  = 0;
-            self.firstTableView.frame  = CGRectMake(0, CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width,TableViewHeight -bottomViewHeight );
+            self.firstTableView.frame  = CGRectMake(0, CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width,tableHeight -bottomViewHeight );
         }
             break;
         case 2:{
             self.firstTableView.alpha  = 1;
             self.secondTableView.alpha = 1;
             self.thirdTableView.alpha  = 0;
-            self.firstTableView.frame  = CGRectMake(0, CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 8 * 3 ,TableViewHeight - bottomViewHeight );
-            self.secondTableView.frame = CGRectMake(self.frame.size.width / 8 * 3,CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 8 * 5,TableViewHeight - bottomViewHeight);
+            self.firstTableView.frame  = CGRectMake(0, CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 8 * 3 ,tableHeight - bottomViewHeight );
+            self.secondTableView.frame = CGRectMake(self.frame.size.width / 8 * 3,CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 8 * 5,tableHeight - bottomViewHeight);
         }
             break;
         case 3:{
             self.firstTableView.alpha  = 1;
             self.secondTableView.alpha = 1;
             self.thirdTableView.alpha  = 1;
-            self.firstTableView.frame  = CGRectMake(0, CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 4,TableViewHeight -bottomViewHeight );
-            self.secondTableView.frame = CGRectMake(self.frame.size.width / 4,CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 8 * 3,TableViewHeight - bottomViewHeight);
-            self.thirdTableView.frame  = CGRectMake(self.frame.size.width / 8 * 5,CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 8 * 3,TableViewHeight - bottomViewHeight);
+            self.firstTableView.frame  = CGRectMake(0, CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 4,tableHeight -bottomViewHeight );
+            self.secondTableView.frame = CGRectMake(self.frame.size.width / 4,CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 8 * 3,tableHeight - bottomViewHeight);
+            self.thirdTableView.frame  = CGRectMake(self.frame.size.width / 8 * 5,CGRectGetMaxY(self.headerTitlesView.frame), self.frame.size.width / 8 * 3,tableHeight - bottomViewHeight);
         }
             break;
 
@@ -288,7 +293,7 @@
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
 {
-    return [self.self.halfAlphaBackGroundView pointInside:point withEvent:event];
+    return [self.halfAlphaBackGroundView pointInside:point withEvent:event];
 }
 
 - (void)setExtraCellLineHidden:(UITableView *)tableView

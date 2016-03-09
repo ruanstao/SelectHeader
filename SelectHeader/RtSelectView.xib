@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -31,16 +31,26 @@
                         <constraint firstAttribute="height" constant="32" id="8L2-fG-nuy"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IYt-wA-IkB">
+                    <rect key="frame" x="0.0" y="32" width="600" height="1"/>
+                    <color key="backgroundColor" red="0.88235294117647056" green="0.88235294117647056" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="FSX-HN-0p3"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="IYt-wA-IkB" firstAttribute="leading" secondItem="Le4-Gi-nWv" secondAttribute="leading" id="OgX-xJ-Xp8"/>
                 <constraint firstItem="TMm-of-il7" firstAttribute="leading" secondItem="fht-4s-edW" secondAttribute="leading" id="Q1E-Tj-sSb"/>
                 <constraint firstAttribute="trailing" secondItem="Le4-Gi-nWv" secondAttribute="trailing" id="Rsg-Md-3K0"/>
+                <constraint firstItem="IYt-wA-IkB" firstAttribute="top" secondItem="Le4-Gi-nWv" secondAttribute="bottom" id="bFL-hd-sqb"/>
                 <constraint firstItem="Q6i-74-BeM" firstAttribute="top" secondItem="fht-4s-edW" secondAttribute="top" id="cbn-X5-wZf"/>
                 <constraint firstAttribute="trailing" secondItem="TMm-of-il7" secondAttribute="trailing" id="fFc-ix-G9C"/>
                 <constraint firstItem="Le4-Gi-nWv" firstAttribute="top" secondItem="fht-4s-edW" secondAttribute="top" id="glI-lu-LA8"/>
                 <constraint firstItem="TMm-of-il7" firstAttribute="top" secondItem="fht-4s-edW" secondAttribute="top" id="hax-uc-z6R"/>
                 <constraint firstItem="Q6i-74-BeM" firstAttribute="leading" secondItem="fht-4s-edW" secondAttribute="leading" id="i1s-Ac-bCH"/>
+                <constraint firstItem="IYt-wA-IkB" firstAttribute="width" secondItem="Le4-Gi-nWv" secondAttribute="width" id="kGQ-79-6yr"/>
                 <constraint firstAttribute="trailing" secondItem="Q6i-74-BeM" secondAttribute="trailing" id="lr7-Xh-0LK"/>
                 <constraint firstItem="Le4-Gi-nWv" firstAttribute="leading" secondItem="fht-4s-edW" secondAttribute="leading" id="tag-wD-NQb"/>
             </constraints>

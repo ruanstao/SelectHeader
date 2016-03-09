@@ -12,4 +12,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (nonatomic,assign)BOOL isSelected;
+@property (weak, nonatomic) IBOutlet UIView *separatorLine;
 @end
